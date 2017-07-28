@@ -81,7 +81,7 @@ namespace Voronoi_jx
 
             RemoveDuplicatePoints();
             foreach (var node in _nodeList)
-            {
+            { 
                 node.halfEdge = null;
                 var se = new SiteEvent(node);
                 IPriorityQueueHandle<IEvent> h = null;
@@ -279,10 +279,13 @@ namespace Voronoi_jx
                     if (he.GetTarget() == null)
                     {
                         he.SetTarget(ce);
+                        ce.halfEdge = he;
                     }
                     else
+                    {
                         he.Twin().SetTarget(ce);
-
+                        ce.halfEdge = he.Twin();
+                    } 
                     _allCircleEvents.Add(ce);
                 }
                 else
@@ -355,9 +358,8 @@ namespace Voronoi_jx
 
             foreach (HalfEdge he in _eventTree.halfEdges)
             {
-                if (he.GetTarget().X() >= he.Twin().GetTarget().X() && he.GetTarget().Y() >= he.GetTarget().Y())
+                if (he.GetTarget().GetHashCode() >= he.Twin().GetTarget().GetHashCode())
                 {
-
                     dEdges.Add(new DelaunayEdge(he.GetFace(), he.Twin().GetFace()));
                 }
 

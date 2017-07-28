@@ -171,7 +171,6 @@ namespace Voronoi_jx
                     next.SetParent(bpNode0);
                     _root = bpNode0;
                     bpNode0.SetLChild(next);
-                    next.SetParent(bpNode0);
                     bpNode0.SetRChild(evt);
                     evt.SetParent(bpNode0);
                 }
@@ -189,7 +188,7 @@ namespace Voronoi_jx
 
                 b0.CalculateBreakpoint(y);
                 b0.setX((x + next.GetX()) / 2);
-                b0.setY(y + 900000 /* close to infinity */);
+                b0.setY(y + 9000 /* close to infinity */);
 
                 CircleEvent ce = new CircleEvent(b0.getX(), b0.getY());
 
@@ -227,8 +226,7 @@ namespace Voronoi_jx
         }
 
         public List<CircleEvent> InsertNewSiteEvent(LeafNode current, TreeItem listItem)
-        {
-
+        { 
             List<CircleEvent> circleEvents = new List<CircleEvent>();
 
 
