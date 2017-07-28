@@ -7,7 +7,7 @@ of *Fortune's Algorithm*, written in C#. The application is a simple, single-win
 application. 
 The actual library should be easily extractable from the application to drop into any
 other application. The actual logic of the library was mostly copied from my Java app:
-[JavaGraph](https://github.com/jonghough)
+[JavaGraph](https://github.com/jonghough/JavaGraph)
 
 ## Purpose
 Just a demonstration application and library.
@@ -21,7 +21,7 @@ To generate the diagrams the C5 library's priority queue implementation was used
 2. Change background color
 3. Change line color
 4. Change vertex color
-5. Draw Delaunay Edges (edges between all adjacent rejoins in the voronoi diagram)
+5. Draw Delaunay Edges (edges between all adjacent regions in the voronoi diagram)
 6. Save canvas as image
 
 
